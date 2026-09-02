@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>sikai</title>
+  <meta name="description" content="sikai의 프로젝트 대문 — 만든 사이트로 바로 이동하는 허브" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%A0%3C/text%3E%3C/svg%3E" />
+  <style>
+    /* ── 팔레트: 라이트 기본 + 다크(시스템/토글) ─────────────── */
+    :root {
+      --bg: #f4f6fb;
+      --panel: #ffffff;
+      --panel-2: #eef1f7;
+      --text: #1a1d27;
+      --muted: #5b6172;
+      --line: #dfe3ec;
+      --accent: #2f6ef0;
+      --accent-soft: rgba(47, 110, 240, .10);
+      --shadow: 0 6px 20px rgba(20, 25, 45, .08);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #14161c;
+        --panel: #1e2029;
+        --panel-2: #262a35;
+        --text: #eef1f7;
+        --muted: #9aa1b2;
+        --line: #2c313d;
+        --accent: #6ea8fe;
+        --accent-soft: rgba(110, 168, 254, .14);
+        --shadow: 0 8px 26px rgba(0, 0, 0, .35);
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 56px;
+    }
+    /* 은은한 상단 그라데이션 후광 */
+    body::before {
+      content: "";
+      position: fixed; inset: 0 0 auto 0; height: 320px;
+      background: radial-gradient(60% 100% at 50% 0%, var(--accent-soft), transparent 70%);
+      pointer-events: none;
+    }
+    header {
+      text-align: center;
+      margin: 20px 0 34px;
+      position: relative;
+    }
+    .logo {
+      width: 64px; height: 64px; margin: 0 auto 16px;
+      display: grid; place-items: center;
+      font-size: 34px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+    h1 { margin: 0; font-size: 30px; letter-spacing: -.02em; }
+    .tagline { margin: 8px 0 0; color: var(--muted); font-size: 15px; }
+
+    /* ── 카드(버튼) 그리드 ───────────────────────────────── */
+    main {
+      width: 100%;
+      max-width: 720px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: var(--shadow);
+      transition: transform .14s ease, border-color .14s ease, box-shadow .14s ease;
+    }
+    .card:hover, .card:focus-visible {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 30px rgba(47, 110, 240, .18);
+      outline: none;
+    }
+    .card .ico {
+      flex: 0 0 auto;
+      width: 52px; height: 52px;
+      display: grid; place-items: center;
+      font-size: 26px;
+      background: var(--accent-soft);
+      border-radius: 13px;
+    }
+    .card .body { min-width: 0; display: flex; flex-direction: column; }
+    .card .name { display: block; font-size: 17px; font-weight: 700; letter-spacing: -.01em; }
+    .card .desc { display: block; margin-top: 3px; font-size: 13px; color: var(--muted); line-height: 1.4; }
+    .card .host { display: block; margin-top: 6px; font-size: 12px; color: var(--accent); font-variant-numeric: tabular-nums; word-break: break-all; }
+    .card .arrow { margin-left: auto; flex: 0 0 auto; color: var(--muted); transition: transform .14s ease, color .14s ease; font-size: 18px; }
+    .card:hover .arrow, .card:focus-visible .arrow { transform: translateX(3px); color: var(--accent); }
+
+    footer { margin-top: 40px; color: var(--muted); font-size: 12.5px; text-align: center; }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo" aria-hidden="true">🏠</div>
+    <h1>sikai</h1>
+    <p class="tagline">내가 만든 사이트로 바로 이동하는 대문</p>
+  </header>
+
+  <main>
+    <!-- musik-maker -->
+    <a class="card" href="https://minsikim-42.github.io/musik-maker/">
+      <span class="ico" aria-hidden="true">🎹</span>
+      <span class="body">
+        <span class="name">musik-maker</span>
+        <span class="desc">브라우저에서 악기를 골라 악보에 찍고 재생하는 웹 작곡 앱</span>
+        <span class="host">minsikim-42.github.io/musik-maker</span>
+      </span>
+      <span class="arrow" aria-hidden="true">→</span>
+    </a>
+
+    <!-- sikai 홈 서버 -->
+    <a class="card" href="https://sikai.iptime.org">
+      <span class="ico" aria-hidden="true">🖥️</span>
+      <span class="body">
+        <span class="name">sikai 서버</span>
+        <span class="desc">집에서 직접 여는 홈 서버</span>
+        <span class="host">sikai.iptime.org</span>
+      </span>
+      <span class="arrow" aria-hidden="true">→</span>
+    </a>
+  </main>
+
+  <footer>
+    GitHub Pages로 호스팅 · <a href="https://github.com/minsikim-42">github.com/minsikim-42</a>
+  </footer>
+</body>
+</html>
