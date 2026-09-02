@@ -1,6 +1,6 @@
 # minsikim-42.github.io
 
-sikai의 프로젝트 대문(허브) — GitHub Pages 사용자 사이트(루트).
+sik world — 프로젝트 대문(허브), GitHub Pages 사용자 사이트(루트).
 
 - 라이브: https://minsikim-42.github.io/
 - 정적 사이트(`index.html` 하나, 빌드 없음, 외부 의존성 없음).
